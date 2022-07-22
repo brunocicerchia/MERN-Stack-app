@@ -1,25 +1,37 @@
-import { usePosts } from "../context/postContext"
-import {Link} from 'react-router-dom'
+import { PostList } from "../components/PostsList"
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export function HomePage() {
 
-  const {posts} = usePosts()
-
-  if(posts.length === 0) return (
-    <div className="flex flex-col justify-center items-center">
-      <h1>No hay publicaciones aun!</h1>
-    </div>
-  )
-
   return (
     <div>
-      <Link to="/new" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear producto</Link>
-      {posts.map(post => (
-        <div key={post._id}>
-          {post.title}
-        </div>
-      ))}
+      <Navbar expand="lg" variant="dark" style={{backgroundColor: '#090909'}}>
+      <Container fluid className='navbarColor'>
+        <Navbar.Brand href="#home">PediOnline</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Restaurantes</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">
+                Another action
+            </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+      </Navbar>
+      <PostList />
     </div>
-    
   )
 }
