@@ -16,6 +16,10 @@ const postSchema = new mongoose.Schema({
     precio: {
         type: String,
         require: true
+    },
+    client: {
+        type: String,
+        require: true
     }
 })
 

@@ -13,7 +13,7 @@ export const getPosts = async (req, res) => {
 
 export const createPosts = async (req, res) => {
     try{
-        const {title, description} = req.body
+        const {title, description, precio, client} = req.body
         let image;
 
         if(req.files?.image) {
@@ -24,7 +24,7 @@ export const createPosts = async (req, res) => {
                 public_id: result.public_id,
             }
         }
-        const newPost = new Post({title, description, image})
+        const newPost = new Post({title, description, image, precio, client})
         await newPost.save()
 
         return res.json(newPost)
@@ -60,7 +60,8 @@ export const deletePosts = async (req, res) => {
 
 export const getPost = async (req, res) => {
     try{
-        const post = await Post.findById(req.params.id)
+        console.log(req.params.id)
+        const post = await Post.find({client : req.params.id})
         if(!post) return res.sendStatus(404)
         return res.json(post)
     } catch(error) {
