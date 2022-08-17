@@ -1,0 +1,25 @@
+.mainHeader {
+    background-color: #030BA6;
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+  }
+
+.text {
+  font-family: 'Asap', sans-serif;
+  font-weight: 400;
+}
+
+.title {
+  font-family: 'Asap', sans-serif;
+  font-weight: 700;
+}
+
+.btn-primary {
+  background-color: #00C565 !important;
+  color: #030BA6 !important;
+}
+
+.btn-primary:hover {
+  background-color: #02a757 !important;
+  color: #030BA6 !important;
+}

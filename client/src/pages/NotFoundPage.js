@@ -1,5 +1,9 @@
+import { PostList } from "../components/PostsList"
+
 export function NotFoundPage() {
   return (
-    <div>NotFoundPage</div>
+    <div>
+      <PostList />
+    </div>
   )
 }

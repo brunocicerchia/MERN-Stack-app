@@ -60,7 +60,6 @@ export const deletePosts = async (req, res) => {
 
 export const getPost = async (req, res) => {
     try{
-        console.log(req.params.id)
         const post = await Post.find({client : req.params.id})
         if(!post) return res.sendStatus(404)
         return res.json(post)
